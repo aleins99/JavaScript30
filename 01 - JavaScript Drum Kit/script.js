@@ -1,8 +1,9 @@
 /* Listening for a keydown event and then playing the sound associated with that key. */
 window.addEventListener('keydown', (el) => {
-  let key = document.querySelector(`.key[data-key="${el.keyCode}"]`);
+  let codeKey = el.key.toUpperCase().charCodeAt(0);
+  let key = document.querySelector(`.key[data-key="${codeKey}"]`);
 
-  let sound = document.querySelector(`audio[data-key="${el.keyCode}"]`);
+  let sound = document.querySelector(`audio[data-key="${codeKey}"]`);
   if (!key) return;
   sound.currentTime = 0;
   sound.play();
